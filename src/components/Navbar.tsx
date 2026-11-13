@@ -32,8 +32,9 @@ const Navbar = () => {
         <Link
           to="/"
           onClick={() => setIsOpen(false)}
-          className="shrink-0 text-lg font-light tracking-normal text-foreground sm:text-xl hover:opacity-80 transition-opacity"
+          className="flex shrink-0 items-center gap-2.5 text-lg font-light tracking-normal text-foreground sm:text-xl hover:opacity-80 transition-opacity"
         >
+          <img src="/favicon.svg" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
           @mannanjaffery
         </Link>
 

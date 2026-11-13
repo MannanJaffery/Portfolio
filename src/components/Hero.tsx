@@ -1,23 +1,13 @@
-import { useState, useEffect } from "react";
 import { BadgeCheck, BookText, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
 import TechIcon from "./helpers/TechIcon";
 import { skills } from "@/data/tech";
 import { socials } from "@/data/socials";
 import SocialIcon from "./helpers/SocialIcon";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/motionVariants";
 
-const LABELS = ["Full Stack Engineer", "AI Engineer"];
-
 const Hero = () => {
-  const [labelIdx, setLabelIdx] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setLabelIdx((i) => (i + 1) % LABELS.length), 3000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <section className="flex flex-col justify-center pt-32 pb-20 sm:pt-22 sm:pb-12" id="home">
       <motion.div
@@ -69,24 +59,8 @@ const Hero = () => {
 
         <motion.div variants={itemVariants} className="space-y-5 sm:space-y-6">
           <h1 className="max-w-full text-[1.7rem] font-normal tracking-tight leading-tight sm:text-[2.05rem] md:text-[2.15rem]">
-            <span style={{ display: "inline-grid" }}>
-              <span style={{ visibility: "hidden", gridArea: "1/1" }} aria-hidden>
-                {LABELS.reduce((a, b) => (a.length >= b.length ? a : b))}
-              </span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={labelIdx}
-                  style={{ gridArea: "1/1" }}
-                  initial={{ opacity: 0, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, filter: "blur(8px)" }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {LABELS[labelIdx]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            {" - "}
+            Full Stack &amp; AI Engineer
+            {" "}<span className="text-muted-foreground/60">—</span>{" "}
             <span className="text-[0.85em] font-light text-muted-foreground sm:text-[0.90em]">
               agents, products and automation, end to end
             </span>
