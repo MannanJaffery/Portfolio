@@ -42,7 +42,7 @@ export const experience: Experience[] = [
     stack: ["Python", "LiveKit", "Power BI", "RBAC"],
   },
   {
-    company: "Comp Technologies",
+    company: "Lokal",
     role: "Full-Stack Developer Intern",
     type: "Remote",
     location: "Malaysia",
