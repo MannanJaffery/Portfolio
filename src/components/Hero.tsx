@@ -60,7 +60,7 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="space-y-5 sm:space-y-6">
           <h1 className="max-w-full text-[1.7rem] font-normal tracking-tight leading-tight sm:text-[2.05rem] md:text-[2.15rem]">
             Full Stack &amp; AI Engineer
-            {" "}<span className="text-muted-foreground/60">—</span>{" "}
+            {" "}<span className="text-muted-foreground/60">-</span>{" "}
             <span className="text-[0.85em] font-light text-muted-foreground sm:text-[0.90em]">
               agents, products and automation, end to end
             </span>
@@ -78,7 +78,7 @@ const Hero = () => {
                 </span>
               ))}
             </span>{" "}
-— from agentic AI workflows and multilingual voice agents to dashboards, payments and browser automation. Currently building at OrbitLabX.
+- from agentic AI workflows and multilingual voice agents to dashboards, payments and browser automation. Currently building at OrbitLabX.
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
