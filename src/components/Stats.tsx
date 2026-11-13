@@ -142,6 +142,56 @@ function toWeeks(contributions: Contribution[]) {
 // ─── Hooks ────────────────────────────────────────────────────────────────────
 
 
+type GitHubPayload = {
+  contributions: Contribution[];
+  repos: { name: string; count: number; href: string; avatarUrl?: string }[];
+};
+
+/** Prefer the serverless proxy; fall back to public APIs (works in dev and on static hosts). */
+async function loadGitHubData(login: string): Promise<GitHubPayload> {
+  try {
+    const res = await fetch(`/api/github?username=${encodeURIComponent(login)}`);
+    const json = res.ok ? await res.json().catch(() => null) : null;
+    if (json && Array.isArray(json.contributions) && json.contributions.length > 0) {
+      return json as GitHubPayload;
+    }
+  } catch {
+    // fall through to direct fetch
+  }
+
+  const [contribRes, reposRes] = await Promise.all([
+    fetch(`https://github-contributions-api.jogruber.de/v4/${encodeURIComponent(login)}?y=last`),
+    fetch(`https://api.github.com/users/${encodeURIComponent(login)}/repos?type=owner&sort=pushed&per_page=20`).catch(
+      () => null,
+    ),
+  ]);
+  if (!contribRes.ok) throw new Error(`HTTP error ${contribRes.status}`);
+  const contribJson = await contribRes.json();
+
+  let repos: GitHubPayload["repos"] = [];
+  if (reposRes?.ok) {
+    const list = (await reposRes.json()) as Array<{
+      name: string;
+      stargazers_count: number;
+      html_url: string;
+      owner?: { avatar_url?: string };
+      fork: boolean;
+      archived: boolean;
+    }>;
+    repos = list
+      .filter((r) => !r.fork && !r.archived)
+      .sort((a, b) => b.stargazers_count - a.stargazers_count)
+      .slice(0, 10)
+      .map((r) => ({
+        name: r.name,
+        count: r.stargazers_count,
+        href: r.html_url,
+        avatarUrl: r.owner?.avatar_url,
+      }));
+  }
+  return { contributions: contribJson.contributions ?? [], repos };
+}
+
 function useGitHubUser(
   login?: string,
   onStateChange?: (loading: boolean, error: boolean) => void,
@@ -157,18 +207,10 @@ function useGitHubUser(
     let active = true;
     onStateChange?.(true, false);
 
-    fetch(`/api/github?username=${encodeURIComponent(login)}`)
-      .then(async (res) => {
-        const json = await res.json().catch(() => null);
-        if (!res.ok || !json) {
-          throw new Error(json?.error || `HTTP error ${res.status}`);
-        }
-        return json;
-      })
+    loadGitHubData(login)
       .then((json) => {
         if (!active) return;
         if (
-          json.error ||
           !Array.isArray(json.contributions) ||
           json.contributions.length === 0
         ) {
