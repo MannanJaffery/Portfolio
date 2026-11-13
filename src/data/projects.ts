@@ -34,7 +34,7 @@ export const projects: Project[] = [
   {
     slug: "orbitlabx",
     name: "OrbitLabX",
-    imgSrc: "/projects/orbitlabx.svg",
+    imgSrc: "/projects/orbitlabx.jpg",
     category: "AI",
     role: "Full Stack & AI Engineer · Feb 2026 – Present · Remote",
     description:
@@ -122,7 +122,7 @@ export const projects: Project[] = [
   {
     slug: "bbdc-slot-finder",
     name: "BBDC Slot Finder",
-    imgSrc: "/projects/bbdc-slot-finder.svg",
+    imgSrc: "/projects/bbdc-slot-finder.jpg",
     category: "Automation",
     role: "Solo project · Python automation",
     description:
@@ -144,7 +144,7 @@ export const projects: Project[] = [
   {
     slug: "bloomqueue",
     name: "BloomQueue",
-    imgSrc: "/projects/bloomqueue.svg",
+    imgSrc: "/projects/bloomqueue.jpg",
     category: "Full-Stack",
     role: "Founder-style SaaS build · May – Aug 2025",
     description:
@@ -164,30 +164,9 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "criterion",
-    name: "Criterion",
-    imgSrc: "/projects/criterion.svg",
-    category: "AI",
-    role: "Personal project · AI interview platform",
-    description:
-      "Enterprise talent evaluation: realistic voice interviews, live code execution in a sandbox and structured AI feedback.",
-    about:
-      "Interview practice usually lacks realism and honest feedback. Criterion runs adaptive technical interviews over real-time voice, tailors questions to the candidate's resume, executes code in an isolated Docker sandbox and scores communication, knowledge and code quality.",
-    features: [
-      "LangGraph state machine that manages interview flow and decisions",
-      "Real-time voice agent on LiveKit with speech-to-text and text-to-speech",
-      "Live code execution in an isolated Docker sandbox",
-      "Resume-aware question generation and structured evaluation",
-      "FastAPI backend with PostgreSQL state and checkpoints, Redis for sessions",
-    ],
-    techStack: [t.python, t.fastapi, t.langgraph, t.livekit, t.openai, t.nextjs, t.postgresql, t.redis, t.docker],
-    githubLink: "https://github.com/MannanJaffery/Criterion",
-    featured: true,
-  },
-  {
     slug: "civicpulse",
     name: "CivicPulse",
-    imgSrc: "/projects/civicpulse.svg",
+    imgSrc: "/projects/civicpulse.jpg",
     category: "Full-Stack",
     role: "Personal project · Platform and DevOps",
     description:
@@ -208,7 +187,7 @@ export const projects: Project[] = [
   {
     slug: "online-chess",
     name: "Online Chess",
-    imgSrc: "/projects/online-chess.svg",
+    imgSrc: "/projects/online-chess.jpg",
     category: "Full-Stack",
     role: "Solo project · Real-time multiplayer",
     description:
@@ -229,7 +208,7 @@ export const projects: Project[] = [
   {
     slug: "disaster-response-mis",
     name: "Disaster Response MIS",
-    imgSrc: "/projects/disaster-response-mis.svg",
+    imgSrc: "/projects/disaster-response-mis.jpg",
     category: "Full-Stack",
     role: "Database systems project",
     description:
@@ -248,7 +227,7 @@ export const projects: Project[] = [
   {
     slug: "halal-restaurant-finder",
     name: "Halal Restaurant Finder",
-    imgSrc: "/projects/halal-restaurant-finder.svg",
+    imgSrc: "/projects/halal-restaurant-finder.jpg",
     category: "Full-Stack",
     role: "Trainee task · Frontend",
     description:
@@ -265,6 +244,7 @@ export const projects: Project[] = [
     techStack: [t.react, t.vite, t.tailwindcss, t.leaflet, t.framermotion],
     liveLink: "https://halal-restaurant-finder-rho.vercel.app",
     githubLink: "https://github.com/MannanJaffery/Halal-Restaurant-Finder",
+    featured: true,
   },
 ];
 

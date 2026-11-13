@@ -66,7 +66,7 @@ const ProjectCard = ({
             <span className="text-[15px] font-extralight">Live</span>
           </a>
         ) : (
-          <span className="text-[15px] font-extralight text-muted-foreground/50">Private</span>
+          <span className="text-[15px] font-extralight text-muted-foreground/50">No live demo</span>
         )}
         {githubLink ? (
           <a

@@ -6,3 +6,4 @@ dist
 *.log
 .playwright-mcp
 *.png.tmp
+Gemini_Generated_*

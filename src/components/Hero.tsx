@@ -33,8 +33,8 @@ const Hero = () => {
           <div className="flex shrink-0 items-center justify-center will-change-[transform,opacity] transform-gpu">
             {/* avatar */}
             <img
-              src={`${import.meta.env.BASE_URL}images/avatar.svg`}
-              alt="profile"
+              src={`${import.meta.env.BASE_URL}images/mannan.jpg`}
+              alt="Syed Muhammad Abdul Mannan"
               decoding="async"
               className="block h-35 w-35 shrink-0 rounded-full border-2 border-border object-cover object-center p-1 shadow-sm sm:h-40 sm:w-40"
             />
