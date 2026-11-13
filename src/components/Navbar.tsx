@@ -34,7 +34,7 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className="flex shrink-0 items-center gap-2.5 text-lg font-light tracking-normal text-foreground sm:text-xl hover:opacity-80 transition-opacity"
         >
-          <img src="/favicon.svg" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
+          <span aria-hidden className="h-6 w-6 rounded-[7px] bg-foreground" />
           @mannanjaffery
         </Link>
 
